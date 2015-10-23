@@ -1,0 +1,65 @@
+@mixin clearfix{
+  .cf:before,
+  .cf:after {
+      content: "";
+      display: table;
+  }
+
+  .cf:after {
+      clear: both;
+  }
+}
+
+@mixin font-size($size) {
+    font-size:$size;
+    font-size: ($size / 16px) * 1rem;
+}
+
+
+@mixin linkColor($color) {
+     color: $color;
+     text-decoration: none;
+
+     &:hover{
+         color: lighten($color, 20%);
+         text-decoration: underline;
+     }
+}
+
+
+@mixin user-select{
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+// with gulp-sprite
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {//レティナ対応
+    background-image: url(../img/common/sprite@2x.png);
+    background-size: nth($sprite, 7) nth($sprite, 8);
+  }
+}
+
+@mixin media-md-min {
+  @media screen and (min-width: $md) { @content; }
+}
+@mixin media-md-max {
+  @media screen and (max-width: $md-max) { @content; }
+}
+@mixin media-sp-min {
+  @media screen and (min-width: $sp) { @content; }
+}
+@mixin media-sp-max {
+  @media screen and (max-width: $sp-max) { @content; }
+}
+
+@mixin back-retina( $image, $iden ){
+  background-image: url($image+'.'+$iden);
+  @media all and (-webkit-min-device-pixel-ratio : 2) { background-image: url($image+'@2x.'+$iden 2x); }
+}

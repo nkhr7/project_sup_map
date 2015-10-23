@@ -1,0 +1,47 @@
+/*
+# Button
+
+ */
+[class^="btn"], [class*=" btn-"]{
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    box-sizing: border-box;
+    &:hover, &:focus, &:active{
+        text-decoration: none;
+    }
+}
+
+/*
+## Buttonサイズ
+
+```
+<span class="btn">base(100%)</span>
+<span class="btn btn-s">small</span>
+<span class="btn btn-m">meddium</span>
+<span class="btn btn-l">large</span>
+```
+
+ */
+.btn{
+    width: 100%;
+}
+.btn-s{
+    max-width: 6em;
+}
+.btn-m{
+    max-width: 10em;
+}
+.btn-l{
+    max-width: 12em;
+}
+
+
+/*
+## Buttonの種類
+
+    <span class="btn-hoge">hoge</span>
+    <span class="btn-hoge :hover">hoge(:hover)</span>
+
+ */
+.btn-hoge{}

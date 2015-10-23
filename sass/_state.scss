@@ -1,0 +1,58 @@
+/*
+# status
+
+どこでも使えるクラス
+基本的にスタイルは１つに限定
+
+ */
+.overflow{
+    overflow: hidden;
+}
+.inlineblock{
+    display: inline-block;
+}
+.opa:hover {
+    opacity: .75;
+}
+.txt{
+    &-s{ @include font-size(10px); }
+    &-m{ @include font-size(18px); }
+    &-l{ @include font-size(20px); }
+}
+.note{
+    @include font-size(12px);
+}
+
+.bold{ font-weight: bold; }
+
+.right{ text-align: right; }
+.center{ text-align: center; }
+.left{ text-align: left; }
+
+.vam{ vertical-align: middle; }
+
+.relative{ position: relative; }
+
+.color{
+    &-brand{ color: $color-brand; }
+}
+
+@include media-sp-max{
+    .sp{
+        &-center{
+            text-align: center;
+        }
+        &-none{
+            display: none;
+        }
+    }
+}
+@include media-md-max{
+    .md{
+        &-none{
+            display: none;
+        }
+    }
+}
+
+.none{ display: none; }

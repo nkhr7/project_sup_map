@@ -1,0 +1,34 @@
+/*
+# list
+
+`.list`でデフォルトのlist-styleを消す。
+
+    <ul>
+      <li>デフォルト</li>
+      <li>デフォルト</li>
+      <li>デフォルト</li>
+    </ul>
+
+    <ul class="list">
+      <li>リストのベース</li>
+      <li>リストのベース</li>
+      <li>リストのベース</li>
+    </ul>
+
+*/
+.list{
+    margin-top: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+/*
+## List-type
+
+''.list-hoge''でリストの種類を作る
+
+ */
+.list-article{}
+.list-tri{}
+.list-arrow{}
+.list-icon{}

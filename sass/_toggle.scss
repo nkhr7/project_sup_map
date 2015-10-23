@@ -1,0 +1,70 @@
+/*
+# toggle button
+
+トグルボタン
+''$toggle-size''にはボタン全体のサイズ
+''$toggle-border-width''には中線の横幅
+''$toggle-border-height''には中線の感覚と高さが入る
+
+*/
+$toggle-size: 50px;
+$toggle-border-width: 20px;
+$toggle-border-height: 3px;
+
+.toggle{
+    display: inline-block;
+    width: $toggle-size;
+    height: $toggle-size;
+    background-color: $color-brand;
+    z-index: 1000;
+    cursor: pointer;
+    @include user-select;
+    @include media-md-max{
+        transition: background .5s ease;
+    }
+    i{
+        position: relative;
+        display: block;
+        margin: ($toggle-size / 2)-($toggle-border-height / 2) auto;
+        width: $toggle-border-width;
+        height: $toggle-border-height;
+        background-color: #000;
+        &:before, &:after{
+            content: "";
+            position: absolute;
+            display: block;
+            left: 0;
+            width: $toggle-border-width;
+            height: $toggle-border-height;
+            background-color: #000;
+            transition: transform .3s ease;
+            -webkit-transition: -webkit-transform .3s ease;
+        }
+        &:before{
+            top: -($toggle-border-height * 2);
+        }
+        &:after{
+            bottom: -($toggle-border-height * 2);
+        }
+    }
+}
+
+.toggle.active{
+    @include media-md-max{
+        background-color: transparent;
+    }
+    i{
+        height: 0;
+        &:before{
+            top: 0;
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+        &:after{
+            top: 0;
+            bottom: inherit;
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+    }
+}

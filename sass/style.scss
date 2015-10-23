@@ -1,0 +1,47 @@
+@charset "UTF-8";
+/*
+Theme Name: Ori Framework
+Author: the Ori Team
+Author URI: http://shikiori.com/
+Description: the Ori Team's fream works
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+// Core variables and mixins
+@import "variables";
+@import "sprite";
+@import "mixin";
+
+// Reset and dependencies
+@import "normalize";
+
+// Core CS
+@import "base";
+@import "layout/layout";
+@import "grid";
+
+
+// Components
+@import "ttl";
+@import "list";
+@import "btn";
+@import "table";
+@import "definition";
+@import "input";
+@import "box";
+@import "icon";
+@import "list";
+@import "pager";
+@import "pagination";
+@import "toggle";
+
+// utility
+@import "margin";
+@import "float";
+@import "state";
+
+
+// themes
+@import "lower/home";
