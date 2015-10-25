@@ -17,6 +17,7 @@ $(function(){
       };
     };
 
+    // リストのエレメントを作成
     function create_element($title, $href, $position){
       if($position > 0) {
         var element = document.createElement('ul');
@@ -28,6 +29,7 @@ $(function(){
         return element;
       }
     }
+    // リストにエレメントを入れる
     function inset_list($element, $family_position){
       var primary_nav = document.getElementById('primaryNav');
       var last_target = primary_nav.lastChild;
@@ -39,11 +41,13 @@ $(function(){
         last_target = last_target.lastChild;
         x++;
       }
-      target_stock = target_stock;
-
 
       if($family_position === 0) {
-        primary_nav.appendChild($element);
+        if(target_stock == null) { // indexの処理
+          primary_nav.appendChild($element);
+        } else {
+          target_stock.parentNode.parentNode.insertBefore($element, target_stock.nextSibling);
+        }
       } else if($family_position > 0) {
         target_stock.parentNode.insertBefore($element, target_stock.nextSibling);
       } else {
@@ -53,14 +57,16 @@ $(function(){
         target_stock.parentNode.insertBefore($element, target_stock.nextSibling);
       }
     };
+
+    // サブリストにエレメントを入れる
     function inset_list_sub($element){
       var primary_nav = document.getElementById('utilityNav');
       var last_target = primary_nav.lastChild;
        primary_nav.appendChild($element);
     }
 
-    var prev_i = 0; // ターゲットの前のi
-    var flug = false;
+    var prev_i = 0; // ターゲットの前の要素番号
+    var flug = false; // indexを別枠にするためのフラグ
     $('table tbody tr').each(function() {
       var child = $(this).children();
       var child_length = 6; // 0~階層分
@@ -95,6 +101,7 @@ $(function(){
       }
     });
 
+    // indexにid="home"を入れる
     $('#primaryNav > li:first-child').attr('id', 'home');
 });
 }).call(this);
