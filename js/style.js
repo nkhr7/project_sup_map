@@ -61,7 +61,6 @@ $(function(){
     // サブリストにエレメントを入れる
     function inset_list_sub($element){
       var primary_nav = document.getElementById('utilityNav');
-      var last_target = primary_nav.lastChild;
        primary_nav.appendChild($element);
     }
 
