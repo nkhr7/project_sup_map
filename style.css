@@ -11,16 +11,16 @@
 }
 .sitemap ul {
   position: relative;
-  padding: 0;
-  margin-top: 1em;
-  letter-spacing: -.4em;
+  padding: 1em 0 0 0;
   list-style: none;
+  z-index: 2;
 }
 .sitemap li {
   position: relative;
   padding: 0 1em 1em;
-  letter-spacing: normal;
+  margin-left: 1em;
   vertical-align: top;
+  z-index: 3;
 }
 .sitemap a {
   position: relative;
@@ -33,37 +33,107 @@
 }
 .sitemap a:before {
   content: attr(href);
-  display: inline-block;
+  display: block;
   font-size: .8em;
 }
 .sitemap li:before,
-.sitemap li:after {
+.sitemap ul:after {
   content: "";
   display: block;
   width: 1px;
   height: 1px;
   position: absolute;
   background-color: #000;
-  z-index: -1;
 }
 .sitemap li:before {
-  width: 100%;
-  top: 2em;
+  width: 2em;
+  top: 1em;
   left: 0;
 }
-.sitemap li:after {
+.sitemap ul:after {
   height: 100%;
   top: 0;
-  left: 50%;
+  left: 1em;
+}
+.sitemap ul li:last-child:after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 2em;
+  position: absolute;
+  left: 0;
+  top: calc(1em + 1px);
+  background-color: #FFF;
 }
 
-.sitemap-main > li {
-  display: inline-block;
+.sitemap .sitemap-main {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: baseline;
+  align-items: baseline;
+}
+.sitemap .sitemap-main:after {
+  display: none;
+}
+.sitemap .sitemap-main > li {
+  margin-left: 0;
   padding-top: 1em;
+}
+.sitemap .sitemap-main > li:before {
+  display: none;
+}
+.sitemap .sitemap-main > li:after,
+.sitemap .sitemap-main > li:last-child:after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 2em;
+  position: absolute;
+  top: 0;
+  left: 2em;
+  background-color: #000;
+}
+.sitemap .sitemap-main > li:nth-child(2):before,
+.sitemap .sitemap-main > li:last-child:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2em;
+  position: absolute;
+  top: 0;
+  background-color: #FFF;
+}
+.sitemap .sitemap-main > li:nth-child(2):before {
+  left: calc(-100% + 2em);
+}
+.sitemap .sitemap-main > li:last-child:before {
+  left: 2em;
+}
+
+.sitemap .sitemap-sub {
+  text-align: right;
+}
+.sitemap .sitemap-sub:after {
+  display: none;
+}
+.sitemap .sitemap-sub li {
+  display: inline-block;
+}
+.sitemap .sitemap-sub li:before,
+.sitemap .sitemap-sub li:after {
+  display: none;
+}
+.sitemap .sitemap-sub a {
+  text-align: left;
 }
 
 #home {
   display: block;
+  width: 100%;
   padding-top: 0;
   text-align: center;
 }
@@ -71,7 +141,13 @@
   display: inline-block;
 }
 #home:before {
+  display: block;
+  width: 100%;
+  left: 2em;
   top: 100%;
+}
+#home:after {
+  left: 50%;
 }
 
 
