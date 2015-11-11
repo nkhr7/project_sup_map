@@ -6,6 +6,5 @@
 
 ## 使ってるテンプレート（？）
 
-* slickmap
 * bootstrap
 * jquery
